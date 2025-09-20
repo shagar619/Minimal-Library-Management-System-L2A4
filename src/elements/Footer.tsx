@@ -1,4 +1,5 @@
 import { BookOpen, Heart } from "lucide-react";
+import { Link } from "react-router";
 
 
 const Footer = () => {
@@ -6,13 +7,13 @@ return (
      <footer className="border-t bg-gradient-subtle">
      <div className="container py-8">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-          {/* Logo and Brand */}
-          <div className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
-               <BookOpen className="h-5 w-5 text-primary-foreground" />
+        {/* Logo */}
+     <Link to="/books" className="flex items-center space-x-2 ml-12">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-500">
+               <BookOpen className="h-6 w-6 text-primary-foreground" />
           </div>
-          <span className="text-lg font-semibold text-foreground">LibraryHub</span>
-          </div>
+          <span className="text-2xl font-bold text-foreground">LibraryHub</span>
+     </Link>
 
           {/* Copyright */}
           <div className="flex items-center space-x-1 text-sm text-muted-foreground">

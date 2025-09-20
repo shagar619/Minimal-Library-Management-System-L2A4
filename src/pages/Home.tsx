@@ -1,9 +1,10 @@
+import Hero from "@/elements/Hero";
 
 
 const Home = () => {
      return (
           <div>
-               <h1>This is Home page</h1>
+               <Hero></Hero>
           </div>
      );
 };
