@@ -1,6 +1,6 @@
 
-import './App.css'
-import { Button } from './components/ui/button'
+import './App.css';
+import Navbar from './elements/Navbar';
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
 
-    <Button>It's ok!</Button>
+    <Navbar></Navbar>
 
     </>
   )
