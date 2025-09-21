@@ -37,7 +37,7 @@ return (
                variant={isActivePath(item.href) ? "default" : "ghost"}
                asChild
                className={cn(
-               "transition-all duration-200  hover:bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:text-white",
+               "transition-all duration-200 text-base  hover:bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:text-white",
                isActivePath(item.href) && "bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] shadow-md"
                )}
           >
