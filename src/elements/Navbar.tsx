@@ -21,10 +21,10 @@ return (
      <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
      <Link to="/books" className="flex items-center space-x-2 ml-12">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)]">
                <BookOpen className="h-6 w-6 text-primary-foreground" />
           </div>
-          <span className="text-2xl font-bold text-foreground">LibraryHub</span>
+          <span className="text-2xl font-bold text-[hsl(215_27.9%_16.9%)]">LibraryHub</span>
      </Link>
 
      {/* Desktop Navigation */}
@@ -37,8 +37,8 @@ return (
                variant={isActivePath(item.href) ? "default" : "ghost"}
                asChild
                className={cn(
-               "transition-all duration-200",
-               isActivePath(item.href) && "bg-gradient-primary shadow-md"
+               "transition-all duration-200  hover:bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:text-white",
+               isActivePath(item.href) && "bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] shadow-md"
                )}
           >
           <Link to={item.href} className="flex items-center space-x-2">
@@ -77,8 +77,8 @@ return (
                     variant={isActivePath(item.href) ? "default" : "ghost"}
                     asChild
                     className={cn(
-                    "w-full justify-start transition-all duration-200",
-                    isActivePath(item.href) && "bg-gradient-primary shadow-md"
+                    "w-full justify-start transition-all duration-200 hover:bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:text-white",
+                    isActivePath(item.href) && "bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] shadow-md"
                )}
                     onClick={() => setMobileMenuOpen(false)}
                >
