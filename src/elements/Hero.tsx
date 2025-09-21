@@ -53,9 +53,10 @@ return (
      <div className="space-y-4">
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
           Modern Library 
-          <span className="bg-gradient-primary bg-clip-text text-transparent"> Management</span>
+          <span 
+          className="bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] bg-clip-text text-transparent"> Management</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-[hsl(215_20.2%_65.1%)] max-w-2xl mx-auto leading-relaxed">
           Streamline your library operations with our intuitive book management system. 
           Track inventory, manage borrowing, and gain insights—all in one place.
           </p>
@@ -65,7 +66,7 @@ return (
           <Button 
           size="lg"
           onClick={() => navigate('/books')}
-          className="bg-gradient-primary hover:opacity-90 transition-all duration-200 text-lg px-8 py-6"
+          className="bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:opacity-90 transition-all duration-200 text-lg px-8 py-6"
           >
           <BookOpen className="mr-2 h-5 w-5" />
                Browse Books
@@ -74,7 +75,7 @@ return (
           size="lg"
           variant="outline"
           onClick={() => navigate('/create-book')}
-          className="text-lg px-8 py-6 hover:bg-primary-light border-2"
+          className="text-lg px-8 py-6 hover:bg-[hsl(173,58%,32%)] hover:text-white border-2"
           >
           <Plus className="mr-2 h-5 w-5" />
                Add New Book
