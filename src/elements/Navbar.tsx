@@ -92,6 +92,7 @@ return (
           );
           })}
           </div>
+          <div className='p-3'><ModeToggle></ModeToggle></div>
      </div>
      )}
 </nav>
