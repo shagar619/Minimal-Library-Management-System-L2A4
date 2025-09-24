@@ -4,7 +4,7 @@ export const BlogData =
 [
 {
      "id": 1,
-     "title": "Whispers of the Forgotten Forest",
+     "title": "Whispers of the Forgotten",
      "author": "Eleanor Hayes",
      "genre": "Fantasy",
      "date": "2023-05-14",
@@ -57,8 +57,8 @@ export const BlogData =
      "content": "An empowering guide that blends psychology and mindfulness techniques to help readers harness their true potential."
 },
 {
-     "id": 1,
-     "title": "Whispers of the Forgotten Forest",
+     "id": 7,
+     "title": "Whispers of the Forgotten",
      "author": "Eleanor Hayes",
      "genre": "Fantasy",
      "date": "2023-05-14",
@@ -66,7 +66,7 @@ export const BlogData =
      "content": "A tale of a young adventurer who stumbles into a mystical forest where time stands still and forgotten legends come alive."
 },
 {
-     "id": 2,
+     "id": 8,
      "title": "Beneath the Silent Waves",
      "author": "Marcus Lin",
      "genre": "Mystery",
@@ -75,7 +75,7 @@ export const BlogData =
      "content": "When a coastal town faces a series of strange disappearances, a journalist uncovers secrets hidden deep beneath the sea."
 },
 {
-     "id": 3,
+     "id": 9,
      "title": "The Quantum Paradox",
      "author": "Dr. Aisha Rahman",
      "genre": "Science Fiction",
@@ -84,7 +84,7 @@ export const BlogData =
      "content": "A thrilling exploration of parallel universes, where a physicist must solve a paradox that could unravel reality itself."
 },
 {
-     "id": 4,
+     "id": 10,
      "title": "Harvest of Dreams",
      "author": "Samuel Ortega",
      "genre": "Romance",
@@ -93,7 +93,7 @@ export const BlogData =
      "content": "Set against the backdrop of a vineyard, this heartfelt love story follows two strangers brought together by fate and ambition."
 },
 {
-     "id": 5,
+     "id": 11,
      "title": "Echoes of the Empire",
      "author": "Clara Bennett",
      "genre": "Historical Fiction",
@@ -102,7 +102,7 @@ export const BlogData =
      "content": "A gripping saga of loyalty and betrayal during the fall of a once-mighty empire, told through the eyes of a soldier’s family."
 },
 {
-     "id": 6,
+     "id": 12,
      "title": "Mind Over Matter",
      "author": "David Chen",
      "genre": "Self-Help",

@@ -11,7 +11,7 @@ return (
           </h2>
      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {BlogData.map((blog) => (
-          <div key={blog.id} className="shadow-md hover:shadow-lg transition-all duration-300 group">
+          <div key={blog.id} className="shadow-md hover:shadow-lg transition-all duration-300 group pb-3">
                <figure>
                <img src={blog.image} alt={blog.title} className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-md" />
                </figure>
