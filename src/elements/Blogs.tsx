@@ -4,12 +4,11 @@ import { BlogData } from "../Data/BlogData";
 const Blogs = () => {
 
 return (
-     <div className="w-11/12 md:w-10/12 mx-auto px-4 py-10">
-          <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-600">
-          Explore Engaging Library Blogs, Reading Tips 
+     <div className="w-11/12 md:w-10/12 mx-auto px-4">
+          <h2 className="text-5xl font-bold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-600">
+               Explore Engaging Library Blogs, Reading Tips 
           </h2>
-
-     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {BlogData.map((blog) => (
           <div key={blog.id} className="card bg-base-100 shadow-md border">
                <figure>
