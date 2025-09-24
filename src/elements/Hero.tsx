@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, BookOpen, Database, Plus, Users } from "lucide-react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import Blogs from "./Blogs";
 
 
 export default function Hero() {
@@ -19,36 +20,36 @@ const features = [
      icon: BookOpen,
      title: 'Book Management',
      description: 'Add, edit, and manage your entire book collection with detailed information.',
-     color: 'text-primary',
-     bg: 'bg-primary-light'
+     color: 'text-[hsl(173_58%_39%)]',
+     bg: 'bg-[hsl(173_58%_95%)]'
      },
      {
      icon: Users,
      title: 'Easy Borrowing',
      description: 'Simple borrowing system with quantity tracking and due date management.',
-     color: 'text-accent',
-     bg: 'bg-accent-light'
+     color: 'text-[hsl(217_91%_60%)]',
+     bg: 'bg-[hsl(217_91%_95%)]'
      },
      {
      icon: BarChart3,
      title: 'Analytics & Reports',
      description: 'Track borrowing patterns and get insights into popular books.',
-     color: 'text-success',
-     bg: 'bg-success-light'
+     color: 'text-[hsl(142_76%_50%)]',
+     bg: 'bg-[hsl(142_76%_95%)]'
      },
      {
      icon: Database,
      title: 'Real-time Updates',
      description: 'All changes are reflected instantly across the entire system.',
-     color: 'text-warning',
-     bg: 'bg-warning-light'
+     color: 'text-[hsl(38_92%_60%)]',
+     bg: 'bg-[hsl(38_92%_95%)]'
      }
      ];
 
 return (
      <div>
       {/* Hero Section */}
-     <section className="container py-24">
+     <section className="mdcontainer py-24">
      <div className="text-center space-y-8 max-w-4xl mx-auto">
      <div className="space-y-4">
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
@@ -84,11 +85,14 @@ return (
      </div>
      </section>
 
+     {/* Blogs Featured */}
+     <Blogs></Blogs>
+
       {/* Features Section */}
-     <section className="container py-16">
+     <section className="w-10/12 mx-auto py-16">
      <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl font-bold">Powerful Features</h2>
-          <p className="text-lg text-muted-foreground">
+          <h2 className="text-5xl font-bold bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] bg-clip-text text-transparent">Powerful Features</h2>
+          <p className="text-xl text-[hsl(215_20.2%_65.1%)]">
                Everything you need to manage your library efficiently
           </p>
      </div>
@@ -116,12 +120,12 @@ return (
      {/* Quick Actions Section */}
      <section className="container py-16">
      <div className="max-w-4xl mx-auto">
-          <Card className="shadow-xl bg-gradient-subtle border-2">
+          <Card className="shadow-xl bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))] border-2">
           <CardContent className="p-8">
           <div className="text-center space-y-6">
                <div className="space-y-2">
                <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
-               <p className="text-lg text-muted-foreground">
+               <p className="text-lg text-[hsl(215_13.8%_55.1%)]">
                     Begin managing your library with our comprehensive suite of tools
                </p>
                </div>
@@ -129,7 +133,7 @@ return (
                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                <Button 
                     onClick={() => navigate('/books')}
-                    className="bg-gradient-primary hover:opacity-90 transition-all duration-200 py-6"
+                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 transition-all duration-200 py-6"
                >
                     <BookOpen className="mr-2 h-5 w-5" />
                     View All Books
@@ -137,7 +141,7 @@ return (
                <Button 
                     onClick={() => navigate('/create-book')}
                     variant="outline"
-                    className="hover:bg-primary-light border-2 py-6"
+                    className="hover:bg-[hsl(173_48%_89%)] border-2 py-6"
                >
                     <Plus className="mr-2 h-5 w-5" />
                     Add First Book
@@ -145,7 +149,7 @@ return (
                <Button 
                     onClick={() => navigate('/borrow-summary')}
                     variant="outline"
-                    className="hover:bg-accent-light border-2 py-6"
+                    className="hover:bg-[hsl(217_91%_95%)] border-2 py-6 cursor-pointer"
                >
                     <BarChart3 className="mr-2 h-5 w-5" />
                     View Analytics
