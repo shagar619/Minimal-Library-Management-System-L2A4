@@ -23,6 +23,14 @@ export interface CreateBookRequest {
      available?: boolean;
 }
 
+interface IPost {
+     userId: number;
+     id: number;
+     title: string;
+     body: string;
+}
+
+
 export interface UpdateBookRequest extends Partial<CreateBookRequest> {
      id: string;
 }
@@ -42,7 +50,7 @@ export const booksApi = createApi({
           query: () => '/posts',
           providesTags: ['Book'],
           // Transform mock data to match our Book interface
-          transformResponse: (response: any[]): Book[] => {
+          transformResponse: (response: IPost[]): Book[] => {
           return response.slice(0, 20).map((post, index) => ({
           id: post.id.toString(),
           title: post.title,
@@ -60,7 +68,7 @@ export const booksApi = createApi({
      getBook: builder.query<Book, string>({
      query: (id) => `/posts/${id}`,
      providesTags: (result, error, id) => [{ type: 'Book', id }],
-     transformResponse: (response: any): Book => ({
+     transformResponse: (response: IPost): Book => ({
           id: response.id.toString(),
           title: response.title,
           author: `Author ${response.id}`,
@@ -80,7 +88,7 @@ export const booksApi = createApi({
           body: newBook,
      }),
      invalidatesTags: ['Book'],
-     transformResponse: (response: any, meta, arg): Book => ({
+     transformResponse: (response: { id?: number }, meta, arg): Book => ({
           id: response.id?.toString() || Date.now().toString(),
           title: arg.title,
           author: arg.author,
