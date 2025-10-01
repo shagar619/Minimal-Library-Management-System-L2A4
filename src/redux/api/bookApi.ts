@@ -36,7 +36,7 @@ export interface UpdateBookRequest extends Partial<CreateBookRequest> {
 }
 
 // Mock API base URL - replace with actual API
-const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
+const API_BASE_URL = 'http://localhost:5000/books';
 
 
 export const booksApi = createApi({
@@ -46,6 +46,7 @@ export const booksApi = createApi({
      }),
      tagTypes: ['Book'],
      endpoints: (builder) => ({
+
      getBooks: builder.query<Book[], void>({
           query: () => '/posts',
           providesTags: ['Book'],
@@ -65,6 +66,7 @@ export const booksApi = createApi({
      }));
      },
      }),
+
      getBook: builder.query<Book, string>({
      query: (id) => `/posts/${id}`,
      providesTags: (result, error, id) => [{ type: 'Book', id }],
@@ -81,6 +83,7 @@ export const booksApi = createApi({
           updatedAt: new Date().toISOString(),
      }),
      }),
+
      createBook: builder.mutation<Book, CreateBookRequest>({
      query: (newBook) => ({
           url: '/posts',
@@ -101,6 +104,7 @@ export const booksApi = createApi({
           updatedAt: new Date().toISOString(),
      }),
      }),
+
      updateBook: builder.mutation<Book, UpdateBookRequest>({
      query: ({ id, ...patch }) => ({
           url: `/posts/${id}`,
@@ -109,6 +113,7 @@ export const booksApi = createApi({
      }),
      invalidatesTags: (result, error, { id }) => [{ type: 'Book', id }],
      }),
+     
      deleteBook: builder.mutation<{ success: boolean; id: string }, string>({
      query: (id) => ({
           url: `/posts/${id}`,
@@ -118,3 +123,13 @@ export const booksApi = createApi({
      }),
 }),
 });
+
+
+
+export const { 
+     useGetBookQuery,
+     useGetBooksQuery,
+     useCreateBookMutation,
+     useUpdateBookMutation,
+     useDeleteBookMutation
+} = booksApi;
