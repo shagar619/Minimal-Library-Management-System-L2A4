@@ -12,8 +12,10 @@ import PageLayout from '@/components/layout/PageLayout';
 const AllBooksPage = () => {
 
      const navigate = useNavigate();
-     const { data: books, isLoading, error } = useGetBooksQuery();
+
+     const { data: books, isLoading, error } = useGetBooksQuery(undefined);
      console.log(books)
+
      const [searchTerm, setSearchTerm] = useState('');
      const [selectedGenre, setSelectedGenre] = useState('');
 

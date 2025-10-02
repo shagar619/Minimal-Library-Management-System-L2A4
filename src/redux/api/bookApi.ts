@@ -42,33 +42,44 @@ const API_BASE_URL = 'http://localhost:5000/books';
 export const booksApi = createApi({
      reducerPath: 'booksApi',
      baseQuery: fetchBaseQuery({
-    baseUrl: API_BASE_URL,
+     baseUrl: API_BASE_URL,
      }),
      tagTypes: ['Book'],
      endpoints: (builder) => ({
 
+
+
+     // getBooks: builder.query<Book[], void>({
+     //      query: () => '/books',
+     //      providesTags: ['Book'],
+     //      // Transform mock data to match our Book interface
+     //      transformResponse: (response: any[]): Book[] => {
+     //      return response.slice(0, 20).map((post, index) => ({
+     //      id: post.id.toString(),
+     //      title: post.title,
+     //      author: `Author ${index + 1}`,
+     //      genre: ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography'][index % 5],
+     //      isbn: `978-${Math.floor(Math.random() * 1000000000)}`,
+     //      description: post.body,
+     //      copies: Math.floor(Math.random() * 10) + 1,
+     //      available: Math.random() > 0.2,
+     //      createdAt: new Date().toISOString(),
+     //      updatedAt: new Date().toISOString(),
+     // }));
+     // },
+     // }),
+
      getBooks: builder.query<Book[], void>({
-          query: () => '/posts',
-          providesTags: ['Book'],
-          // Transform mock data to match our Book interface
-          transformResponse: (response: IPost[]): Book[] => {
-          return response.slice(0, 20).map((post, index) => ({
-          id: post.id.toString(),
-          title: post.title,
-          author: `Author ${index + 1}`,
-          genre: ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography'][index % 5],
-          isbn: `978-${Math.floor(Math.random() * 1000000000)}`,
-          description: post.body,
-          copies: Math.floor(Math.random() * 10) + 1,
-          available: Math.random() > 0.2,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-     }));
-     },
+     query: () => "/books",
+     // transformResponse: (response: { success: boolean; result: Book[] }) => response.result,
+     providesTags: ["Book"],
      }),
 
+
+
+
      getBook: builder.query<Book, string>({
-     query: (id) => `/posts/${id}`,
+     query: (id) => `/books/${id}`,
      providesTags: (result, error, id) => [{ type: 'Book', id }],
      transformResponse: (response: IPost): Book => ({
           id: response.id.toString(),
@@ -86,7 +97,7 @@ export const booksApi = createApi({
 
      createBook: builder.mutation<Book, CreateBookRequest>({
      query: (newBook) => ({
-          url: '/posts',
+          url: '/books',
           method: 'POST',
           body: newBook,
      }),
@@ -107,16 +118,16 @@ export const booksApi = createApi({
 
      updateBook: builder.mutation<Book, UpdateBookRequest>({
      query: ({ id, ...patch }) => ({
-          url: `/posts/${id}`,
+          url: `/books/${id}`,
           method: 'PUT',
           body: patch,
      }),
      invalidatesTags: (result, error, { id }) => [{ type: 'Book', id }],
      }),
-     
+
      deleteBook: builder.mutation<{ success: boolean; id: string }, string>({
      query: (id) => ({
-          url: `/posts/${id}`,
+          url: `/books/${id}`,
           method: 'DELETE',
      }),
      invalidatesTags: ['Book'],
