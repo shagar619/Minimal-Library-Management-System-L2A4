@@ -49,32 +49,25 @@ export const booksApi = createApi({
 
 
 
-     // getBooks: builder.query<Book[], void>({
-     //      query: () => '/books',
-     //      providesTags: ['Book'],
-     //      // Transform mock data to match our Book interface
-     //      transformResponse: (response: any[]): Book[] => {
-     //      return response.slice(0, 20).map((post, index) => ({
-     //      id: post.id.toString(),
-     //      title: post.title,
-     //      author: `Author ${index + 1}`,
-     //      genre: ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography'][index % 5],
-     //      isbn: `978-${Math.floor(Math.random() * 1000000000)}`,
-     //      description: post.body,
-     //      copies: Math.floor(Math.random() * 10) + 1,
-     //      available: Math.random() > 0.2,
-     //      createdAt: new Date().toISOString(),
-     //      updatedAt: new Date().toISOString(),
-     // }));
-     // },
-     // }),
-
      getBooks: builder.query<Book[], void>({
-     query: () => "/books",
-     // transformResponse: (response: { success: boolean; result: Book[] }) => response.result,
-     providesTags: ["Book"],
+          query: () => '/books',
+          providesTags: ['Book'],
+          // Transform mock data to match our Book interface
+          transformResponse: (response: any[]): Book[] => {
+          return response.slice(0, 20).map((post, index) => ({
+          id: post.id.toString(),
+          title: post.title,
+          author: `Author ${index + 1}`,
+          genre: ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography'][index % 5],
+          isbn: `978-${Math.floor(Math.random() * 1000000000)}`,
+          description: post.body,
+          copies: Math.floor(Math.random() * 10) + 1,
+          available: Math.random() > 0.2,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+     }));
+     },
      }),
-
 
 
 
