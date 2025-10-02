@@ -4,10 +4,14 @@ import { Plus, BarChart3, Menu, X, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/toggleButton/mode-toggle';
+import { useGetAllQuizQuery } from '@/redux/api/baseApi';
 
 const Navbar = () => {
 const location = useLocation();
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+const { data: base } = useGetAllQuizQuery(undefined);
+console.log(base);
 
 const navItems = [
      { href: '/books', label: 'All Books', icon: BookOpen },
