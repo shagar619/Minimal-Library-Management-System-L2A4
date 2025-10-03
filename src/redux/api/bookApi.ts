@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface Book {
-     id: string;
+     _id: string; // MongoDB uses _id, not id
      title: string;
      author: string;
      genre: string;
@@ -23,117 +23,106 @@ export interface CreateBookRequest {
      available?: boolean;
 }
 
-interface IPost {
-     userId: number;
-     id: number;
-     title: string;
-     body: string;
-}
-
-
-export interface UpdateBookRequest extends Partial<CreateBookRequest> {
+export interface UpdateBookRequest extends Partial<CreateBookRequest> { 
      id: string;
 }
 
-// Mock API base URL - replace with actual API
-const API_BASE_URL = 'http://localhost:5000/books';
+// API Response Types from your backend
+interface ApiResponse<T> {
+     success: boolean;
+     message: string;
+     book?: T;
+     books?: T[];
+     created?: T;
+     updated?: T;
+     id?: string;
+}
 
+// API base URL
+const API_BASE_URL = 'http://localhost:5000';
 
 export const booksApi = createApi({
      reducerPath: 'booksApi',
      baseQuery: fetchBaseQuery({
-     baseUrl: API_BASE_URL,
+          baseUrl: API_BASE_URL,
      }),
      tagTypes: ['Book'],
      endpoints: (builder) => ({
+          // GET all books
+          getBooks: builder.query<Book[], void>({
+               query: () => '/books', // This will call http://localhost:5000/books
+               providesTags: (result) =>
+                    result
+                         ? [
+                              ...result.map(({ _id }) => ({ type: 'Book' as const, id: _id })),
+                              { type: 'Book', id: 'LIST' },
+                         ]
+                         : [{ type: 'Book', id: 'LIST' }],
+               transformResponse: (response: ApiResponse<Book>): Book[] => {
+                    return response.books || [];
+               },
+          }),
 
+          // GET single book by ID
+          getBook: builder.query<Book, string>({
+               query: (id) => `/books/${id}`, // This will call http://localhost:5000/books/:id
+               providesTags: (result, error, id) => [{ type: 'Book', id }],
+               transformResponse: (response: ApiResponse<Book>): Book => {
+                    return response.book!;
+               },
+          }),
 
+          // POST create book
+          createBook: builder.mutation<Book, CreateBookRequest>({
+               query: (newBook) => ({
+                    url: '/books',
+                    method: 'POST',
+                    body: newBook,
+               }),
+               invalidatesTags: [{ type: 'Book', id: 'LIST' }],
+               transformResponse: (response: ApiResponse<Book>): Book => {
+                    return response.created!;
+               },
+          }),
 
-     getBooks: builder.query<Book[], void>({
-          query: () => '/books',
-          providesTags: ['Book'],
-          // Transform mock data to match our Book interface
-          transformResponse: (response: any[]): Book[] => {
-          return response.slice(0, 20).map((post, index) => ({
-          id: post.id.toString(),
-          title: post.title,
-          author: `Author ${index + 1}`,
-          genre: ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography'][index % 5],
-          isbn: `978-${Math.floor(Math.random() * 1000000000)}`,
-          description: post.body,
-          copies: Math.floor(Math.random() * 10) + 1,
-          available: Math.random() > 0.2,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-     }));
-     },
-     }),
+          // PUT update book
+          updateBook: builder.mutation<Book, { id: string; data: UpdateBookRequest }>({
+               query: ({ id, data }) => ({
+                    url: `/books/${id}`,
+                    method: 'PUT',
+                    body: data,
+               }),
+               invalidatesTags: (result, error, { id }) => [
+                    { type: 'Book', id },
+                    { type: 'Book', id: 'LIST' },
+               ],
+               transformResponse: (response: ApiResponse<Book>): Book => {
+                    return response.updated!;
+               },
+          }),
 
-
-
-     getBook: builder.query<Book, string>({
-     query: (id) => `/books/${id}`,
-     providesTags: (result, error, id) => [{ type: 'Book', id }],
-     transformResponse: (response: IPost): Book => ({
-          id: response.id.toString(),
-          title: response.title,
-          author: `Author ${response.id}`,
-          genre: ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography'][response.id % 5],
-          isbn: `978-${Math.floor(Math.random() * 1000000000)}`,
-          description: response.body,
-          copies: Math.floor(Math.random() * 10) + 1,
-          available: Math.random() > 0.2,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
+          // DELETE book
+          deleteBook: builder.mutation<{ success: boolean; id: string }, string>({
+               query: (id) => ({
+                    url: `/books/${id}`,
+                    method: 'DELETE',
+               }),
+               invalidatesTags: (result, error, id) => [
+                    { type: 'Book', id },
+                    { type: 'Book', id: 'LIST' },
+               ],
+               transformResponse: (response: ApiResponse<Book>) => ({
+                    success: response.success,
+                    id: response.id || '',
+               }),
+          }),
      }),
-     }),
-
-     createBook: builder.mutation<Book, CreateBookRequest>({
-     query: (newBook) => ({
-          url: '/books',
-          method: 'POST',
-          body: newBook,
-     }),
-     invalidatesTags: ['Book'],
-     transformResponse: (response: { id?: number }, meta, arg): Book => ({
-          id: response.id?.toString() || Date.now().toString(),
-          title: arg.title,
-          author: arg.author,
-          genre: arg.genre,
-          isbn: arg.isbn,
-          description: arg.description,
-          copies: arg.copies,
-          available: arg.available ?? true,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-     }),
-     }),
-
-     updateBook: builder.mutation<Book, UpdateBookRequest>({
-     query: ({ id, ...patch }) => ({
-          url: `/books/${id}`,
-          method: 'PUT',
-          body: patch,
-     }),
-     invalidatesTags: (result, error, { id }) => [{ type: 'Book', id }],
-     }),
-
-     deleteBook: builder.mutation<{ success: boolean; id: string }, string>({
-     query: (id) => ({
-          url: `/books/${id}`,
-          method: 'DELETE',
-     }),
-     invalidatesTags: ['Book'],
-     }),
-}),
 });
 
-
-
-export const { 
+export const {
      useGetBookQuery,
      useGetBooksQuery,
      useCreateBookMutation,
      useUpdateBookMutation,
-     useDeleteBookMutation
+     useDeleteBookMutation,
 } = booksApi;
