@@ -13,7 +13,7 @@ return (
           <p className="text-gray-600 mb-6">
           Sorry, the page you're looking for doesn't exist or has been moved.
           </p>
-          <Link to="/" className="btn btn-primary">
+          <Link to="/" className="bg-[hsl(173_58%_39%)] p-2 text-white font-semibold cursor-pointer rounded hover:bg-slate-700">
           Go Back Home
           </Link>
      </div>

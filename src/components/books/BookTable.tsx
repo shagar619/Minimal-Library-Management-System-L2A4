@@ -121,21 +121,21 @@ return (
      </TableHeader>
      <TableBody>
           {books.map((book, index:number) => (
-          <TableRow key={book._id} className="hover:bg-muted/30 transition-colors">
+          <TableRow key={book._id} className="hover:bg-[hsl(210_20%_96%)]/50 transition-colors">
           <TableCell>{index + 1}</TableCell>
           <TableCell>
                <div className="space-y-1">
-               <div className="font-medium text-foreground line-clamp-1">
+               <div className="font-medium text-[hsl(215_27.9%_16.9%)] line-clamp-1">
                     {book.title}
                </div>
                     {book.description && (
-               <div className="text-sm text-muted-foreground line-clamp-1">
+               <div className="text-sm text-[hsl(215_13.8%_55.1%)] line-clamp-1">
                     {book.description}
                </div>
                )}
                </div>
           </TableCell>
-          <TableCell className="text-muted-foreground">{book.author}</TableCell>
+          <TableCell className="text-[hsl(215_13.8%_55.1%)]">{book.author}</TableCell>
           <TableCell>
                <Badge variant="secondary" className="text-xs">
                     {book.genre}
@@ -167,18 +167,18 @@ return (
                     variant={book.available ? "default" : "destructive"}
                     className={cn(
                     "text-xs",
-                    book.available ? "bg-success text-success-foreground" : ""
+                    book.available ? "bg-[hsl(142_76%_50%)] text-[hsl(0_0%_100%)]" : ""
                )}
                >
                     {book.available ? 'Available' : 'Unavailable'}
                </Badge>
           </TableCell>
           <TableCell>
-               <div className="flex items-center justify-center space-x-1">
+               <div className="flex items-center justify-center space-x-2">
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-accent-light"
+                    className="h-8 w-8 bg-[#34656D] hover:bg-[#334443] text-white hover:text-white"
                     onClick={() => navigate(`/books/${book._id}`)}
                >
                     <Eye className="h-4 w-4" />
@@ -186,7 +186,7 @@ return (
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-primary-light"
+                    className="h-8 w-8 cursor-pointer hover:opacity-90 transition-all bg-amber-500 text-white hover:bg-amber-600 focus:ring-2 focus:ring-amber-400"
                     onClick={() => navigate(`/edit-book/${book._id}`)}
                >
                     <Edit className="h-4 w-4" />
@@ -194,7 +194,7 @@ return (
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-accent-light"
+                    className="h-8 w-8 bg-[hsl(173_58%_39%)] text-white hover:bg-slate-700 hover:text-white"
                     onClick={() => navigate(`/borrow/${book._id}`)}
                     disabled={!book.available || book.copies === 0}
                >
@@ -205,7 +205,7 @@ return (
                     <Button
                          variant="ghost"
                          size="icon"
-                         className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"
+                         className="h-8 w-8 bg-cursor-pointer hover:opacity-90 transition-all bg-red-600 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-400 hover:text-white"
                          disabled={deletingId === book._id}
                     >
                          <Trash2 className="h-4 w-4" />
