@@ -68,6 +68,7 @@ const genres = [
 ];
 
 const BookForm = ({ initialData, onSubmit, isLoading, submitText = 'Save Book' }: BookFormProps) => {
+
 const form = useForm<FormData>({
      resolver: zodResolver(formSchema),
      defaultValues: {
@@ -96,10 +97,10 @@ const submitData: CreateBookRequest = {
 
 return (
      <Card className="shadow-lg">
-     <CardHeader className="bg-gradient-subtle">
+     <CardHeader>
      <CardTitle className="flex items-center space-x-2">
-          <BookOpen className="h-5 w-5 text-primary" />
-          <span>{initialData ? 'Edit Book' : 'Add New Book'}</span>
+          <BookOpen className="h-6 w-6 text-[hsl(173_58%_39%)]" />
+          <span className='text-xl font-bold'>{initialData ? 'Edit Book' : 'Add New Book'}</span>
      </CardTitle>
      </CardHeader>
      <CardContent className="p-6">
@@ -117,7 +118,7 @@ return (
                     <Input 
                          placeholder="Enter book title" 
                          {...field} 
-                         className="transition-all focus:ring-2 focus:ring-primary/20"
+                         className="transition-all focus:ring-2 focus:ring-[hsl(173_58%_39%)]/20"
                     />
                     </FormControl>
                     <FormMessage />
@@ -136,7 +137,7 @@ return (
                     <Input 
                          placeholder="Enter author name" 
                          {...field} 
-                         className="transition-all focus:ring-2 focus:ring-primary/20"
+                         className="transition-all focus:ring-2 focus:ring-[hsl(173_58%_39%)]/20"
                     />
                     </FormControl>
                     <FormMessage />
@@ -152,8 +153,8 @@ return (
                     <FormLabel>Genre *</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                    <SelectTrigger className="transition-all focus:ring-2 focus:ring-primary/20">
-                         <SelectValue placeholder="Select a genre" />
+                    <SelectTrigger className="transition-all focus:ring-2 focus:ring-[hsl(173_58%_39%)]/20">
+                    <SelectValue placeholder="Select a genre" />
                     </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -179,7 +180,7 @@ return (
                     <Input 
                          placeholder="978-0123456789" 
                          {...field} 
-                         className="font-mono transition-all focus:ring-2 focus:ring-primary/20"
+                         className="font-mono transition-all focus:ring-2 focus:ring-[hsl(173_58%_39%)]/20"
                     />
                     </FormControl>
                     <FormDescription>
@@ -204,7 +205,7 @@ return (
                          placeholder="1" 
                          {...field}
                          onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                         className="transition-all focus:ring-2 focus:ring-primary/20"
+                         className="transition-all focus:ring-2 focus:ring-[hsl(173_58%_39%)]/20"
                     />
                     </FormControl>
                     <FormMessage />
@@ -243,7 +244,7 @@ return (
                <FormControl>
                     <Textarea 
                          placeholder="Enter book description (optional)" 
-                         className="min-h-[100px] transition-all focus:ring-2 focus:ring-primary/20"
+                         className="min-h-[100px] transition-all focus:ring-2 focus:ring-[hsl(173_58%_39%)]/20"
                          {...field} 
                     />
                </FormControl>

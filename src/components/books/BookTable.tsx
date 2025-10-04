@@ -186,7 +186,7 @@ return (
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 cursor-pointer hover:opacity-90 transition-all bg-amber-500 text-white hover:bg-amber-600 focus:ring-2 focus:ring-amber-400"
+                    className="h-8 w-8 cursor-pointer hover:opacity-90 transition-all bg-amber-500 text-white hover:text-white hover:bg-amber-600 focus:ring-2 focus:ring-amber-400"
                     onClick={() => navigate(`/edit-book/${book._id}`)}
                >
                     <Edit className="h-4 w-4" />
