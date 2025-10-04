@@ -117,12 +117,12 @@ return (
      </div>
 
      {/* Controls */}
-     <Card className="p-6">
+     <Card className="p-6 rounded-sm mb-12">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
           <div className="flex flex-col sm:flex-row gap-4 flex-1">
               {/* Search */}
           <div className="relative flex-1 max-w-md">
-               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[hsl(215_13.8%_55.1%)]" />
                <Input
                     placeholder="Search books, authors, or ISBN..."
                     value={searchTerm}
@@ -156,7 +156,7 @@ return (
           {/* Add Book Button */}
           <Button 
                onClick={() => navigate('/create-book')}
-               className="bg-gradient-primary hover:opacity-90 transition-all duration-200"
+               className="bg-[hsl(173_58%_39%)] hover:opacity-90 transition-all duration-200"
           >
           <Plus className="h-4 w-4 mr-2" />
                Add Book

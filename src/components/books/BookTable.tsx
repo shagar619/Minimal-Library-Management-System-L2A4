@@ -105,10 +105,11 @@ return (
 }
 
 return (
-<div className="border bg-[hsl(0_0%_100%)] overflow-hidden">
+<div className=" bg-[hsl(0_0%_100%)] overflow-hidden">
      <Table>
      <TableHeader>
           <TableRow className="bg-muted/50">
+          <TableHead className="font-semibold"></TableHead>
           <TableHead className="font-semibold">Title</TableHead>
           <TableHead className="font-semibold">Author</TableHead>
           <TableHead className="font-semibold">Genre</TableHead>
@@ -119,8 +120,9 @@ return (
           </TableRow>
      </TableHeader>
      <TableBody>
-          {books.map((book) => (
+          {books.map((book, index:number) => (
           <TableRow key={book._id} className="hover:bg-muted/30 transition-colors">
+          <TableCell>{index + 1}</TableCell>
           <TableCell>
                <div className="space-y-1">
                <div className="font-medium text-foreground line-clamp-1">
