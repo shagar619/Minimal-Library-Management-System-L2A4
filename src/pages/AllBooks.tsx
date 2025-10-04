@@ -14,7 +14,6 @@ const AllBooksPage = () => {
      const navigate = useNavigate();
 
      const { data: books, isLoading, error } = useGetBooksQuery(undefined);
-     console.log(books)
 
      const [searchTerm, setSearchTerm] = useState('');
      const [selectedGenre, setSelectedGenre] = useState('');
