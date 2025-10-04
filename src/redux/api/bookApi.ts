@@ -24,7 +24,7 @@ export interface CreateBookRequest {
 }
 
 export interface UpdateBookRequest extends Partial<CreateBookRequest> { 
-     id: string;
+     _id: string;
 }
 
 // API Response Types from your backend
@@ -35,7 +35,7 @@ interface ApiResponse<T> {
      books?: T[];
      created?: T;
      updated?: T;
-     id?: string;
+     _id?: string;
 }
 
 // API base URL
@@ -86,15 +86,15 @@ export const booksApi = createApi({
           }),
 
           // PUT update book
-          updateBook: builder.mutation<Book, { id: string; data: UpdateBookRequest }>({
-               query: ({ id, data }) => ({
-                    url: `/books/${id}`,
+          updateBook: builder.mutation<Book, { _id: string; data: UpdateBookRequest }>({
+               query: ({ _id, data }) => ({
+                    url: `/books/${_id}`,
                     method: 'PUT',
                     body: data,
                }),
-               invalidatesTags: (result, error, { id }) => [
-                    { type: 'Book', id },
-                    { type: 'Book', id: 'LIST' },
+               invalidatesTags: (result, error, { _id }) => [
+                    { type: 'Book', _id },
+                    { type: 'Book', _id: 'LIST' },
                ],
                transformResponse: (response: ApiResponse<Book>): Book => {
                     return response.updated!;
@@ -107,13 +107,13 @@ export const booksApi = createApi({
                     url: `/books/${id}`,
                     method: 'DELETE',
                }),
-               invalidatesTags: (result, error, id) => [
-                    { type: 'Book', id },
-                    { type: 'Book', id: 'LIST' },
+               invalidatesTags: (result, error, _id) => [
+                    { type: 'Book', _id },
+                    { type: 'Book', _id: 'LIST' },
                ],
                transformResponse: (response: ApiResponse<Book>) => ({
                     success: response.success,
-                    id: response.id || '',
+                    id: response._id || '',
                }),
           }),
      }),

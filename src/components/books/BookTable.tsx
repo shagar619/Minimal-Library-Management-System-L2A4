@@ -43,7 +43,7 @@ try {
      setDeletingId(bookId);
      await deleteBook(bookId).unwrap();
 
-     alert("Book deleted successfully!");
+     alert(`${bookTitle} Book deleted successfully!`);
 
      // toast({
      //      title: "Book deleted successfully",
@@ -52,7 +52,7 @@ try {
 
      } catch (error) {
 
-     alert("Error deleting book.Please try again later.");
+     alert(`Error deleting book.Please try again later. ${error}`);
 
      // toast({
      //      title: "Error deleting book",

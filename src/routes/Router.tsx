@@ -1,6 +1,8 @@
 import App from "@/App";
 import AllBooksPage from "@/pages/AllBooks";
 import CreateBookPage from "@/pages/CreateBookPage";
+import EditBookPage from "@/pages/EditBookPage";
+
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import { createBrowserRouter } from "react-router";
@@ -23,6 +25,11 @@ const router = createBrowserRouter([
      {
           path: "/create-book",
           element: <CreateBookPage></CreateBookPage>,
+          errorElement: <NotFound></NotFound>,
+     },
+     {
+          path: "/edit-book/:_id",
+          element: <EditBookPage></EditBookPage>,
           errorElement: <NotFound></NotFound>,
      },
 ]);
