@@ -78,7 +78,7 @@ const copyISBN = (isbn: string) => {
 
 if (isLoading) {
 return (
-     <div className="rounded-lg border bg-card">
+     <div className="rounded-lg border">
      <div className="p-8 text-center">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent"></div>
           <p className="mt-4 text-muted-foreground">Loading books...</p>
@@ -120,7 +120,7 @@ return (
      </TableHeader>
      <TableBody>
           {books.map((book) => (
-          <TableRow key={book.id} className="hover:bg-muted/30 transition-colors">
+          <TableRow key={book._id} className="hover:bg-muted/30 transition-colors">
           <TableCell>
                <div className="space-y-1">
                <div className="font-medium text-foreground line-clamp-1">
@@ -177,7 +177,7 @@ return (
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 hover:bg-accent-light"
-                    onClick={() => navigate(`/books/${book.id}`)}
+                    onClick={() => navigate(`/books/${book._id}`)}
                >
                     <Eye className="h-4 w-4" />
                </Button>
@@ -185,7 +185,7 @@ return (
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 hover:bg-primary-light"
-                    onClick={() => navigate(`/edit-book/${book.id}`)}
+                    onClick={() => navigate(`/edit-book/${book._id}`)}
                >
                     <Edit className="h-4 w-4" />
                </Button>
@@ -193,7 +193,7 @@ return (
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 hover:bg-accent-light"
-                    onClick={() => navigate(`/borrow/${book.id}`)}
+                    onClick={() => navigate(`/borrow/${book._id}`)}
                     disabled={!book.available || book.copies === 0}
                >
                     <BookMarked className="h-4 w-4" />
@@ -204,7 +204,7 @@ return (
                          variant="ghost"
                          size="icon"
                          className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"
-                         disabled={deletingId === book.id}
+                         disabled={deletingId === book._id}
                     >
                          <Trash2 className="h-4 w-4" />
                     </Button>
@@ -219,7 +219,7 @@ return (
                     <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
                     <AlertDialogAction
-                         onClick={() => handleDelete(book.id, book.title)}
+                         onClick={() => handleDelete(book._id, book.title)}
                          className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                     >
                          Delete

@@ -16,16 +16,16 @@ return (
      <Navbar />
      <main className="flex-1">
      {(title || description) && (
-          <div className="border-b bg-gradient-subtle">
-          <div className="container py-8">
+          <div className="bg-gradient-subtle">
+          <div className="py-8">
           <div className="space-y-2">
                {title && (
-               <h1 className="text-3xl font-bold tracking-tight text-foreground">
+               <h1 className="text-3xl text-center font-bold tracking-tight text-foreground">
                     {title}
                </h1>
                )}
                {description && (
-               <p className="text-lg text-muted-foreground">
+               <p className="text-lg text-center text-muted-foreground">
                     {description}
                </p>
                )}
@@ -33,7 +33,7 @@ return (
           </div>
           </div>
      )}
-     <div className="container py-8 animate-fade-in">
+     <div className="mx-6 md:w-10/12 md:mx-auto pb-36 animate-fade-in">
           {children}
      </div>
      </main>

@@ -4,15 +4,10 @@ import { Plus, BarChart3, Menu, X, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/toggleButton/mode-toggle';
-import { useGetBooksQuery } from '@/redux/api/bookApi';
 
 const Navbar = () => {
 const location = useLocation();
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-const { data: books } = useGetBooksQuery(undefined);
-
-console.log(books);
 
 
 const navItems = [
