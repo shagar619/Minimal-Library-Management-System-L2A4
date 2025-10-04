@@ -16,16 +16,16 @@ return (
      <Navbar />
      <main className="flex-1">
      {(title || description) && (
-          <div className="bg-gradient-subtle">
+          <div className='mt-18'>
           <div className="py-8">
           <div className="space-y-2">
                {title && (
-               <h1 className="text-3xl text-center font-bold tracking-tight text-foreground">
+               <h1 className="text-5xl text-center sm:text-6xl font-bold tracking-tight bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] bg-clip-text text-transparent pb-2">
                     {title}
                </h1>
                )}
                {description && (
-               <p className="text-lg text-center text-muted-foreground">
+               <p className="text-xl text-center text-[hsl(215_13.8%_55.1%)]">
                     {description}
                </p>
                )}

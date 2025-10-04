@@ -59,56 +59,57 @@ return (
 >
      <div className="space-y-6">
         {/* Statistics Cards */}
-     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <Card className="bg-gradient-subtle">
+     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 my-18">
+
+          <Card className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardContent className="p-6">
           <div className="flex items-center space-x-2">
-               <BookOpen className="h-8 w-8 text-primary" />
+               <BookOpen className="h-8 w-8 text-[hsl(173_58%_39%)]" />
                <div>
                     <p className="text-2xl font-bold">{totalBooks}</p>
-                    <p className="text-sm text-muted-foreground">Total Books</p>
+                    <p className="text-sm text-[hsl(215_13.8%_55.1%)]">Total Books</p>
                </div>
           </div>
           </CardContent>
           </Card>
 
-          <Card className="bg-gradient-subtle">
+          <Card className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardContent className="p-6">
           <div className="flex items-center space-x-2">
-               <div className="h-8 w-8 rounded-full bg-success flex items-center justify-center">
-               <BookOpen className="h-5 w-5 text-success-foreground" />
+               <div className="h-8 w-8 rounded-full bg-[hsl(142_76%_15%)] flex items-center justify-center">
+               <BookOpen className="h-6 w-6 text-[hsl(0_0%_100%)]" />
           </div>
                <div>
                     <p className="text-2xl font-bold">{availableBooks}</p>
-                    <p className="text-sm text-muted-foreground">Available</p>
+                    <p className="text-sm text-[hsl(215_13.8%_55.1%)]">Available</p>
                </div>
           </div>
           </CardContent>
           </Card>
 
-          <Card className="bg-gradient-subtle">
+          <Card className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardContent className="p-6">
           <div className="flex items-center space-x-2">
-               <div className="h-8 w-8 rounded-full bg-accent flex items-center justify-center">
-                    <span className="text-sm font-bold text-accent-foreground">📚</span>
+               <div className="h-8 w-8 rounded-full bg-[hsl(217_91%_60%)] flex items-center justify-center">
+                    <span className="text-sm font-bold text-[hsl(0_0%_100%)]">📚</span>
                </div>
                <div>
                     <p className="text-2xl font-bold">{totalCopies}</p>
-                    <p className="text-sm text-muted-foreground">Total Copies</p>
+                    <p className="text-sm text-[hsl(215_13.8%_55.1%)]">Total Copies</p>
                </div>
           </div>
           </CardContent>
           </Card>
 
-          <Card className="bg-gradient-subtle">
+          <Card className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardContent className="p-6">
           <div className="flex items-center space-x-2">
-               <div className="h-8 w-8 rounded-full bg-warning flex items-center justify-center">
-               <Filter className="h-5 w-5 text-warning-foreground" />
+               <div className="h-8 w-8 rounded-full bg-[hsl(38_92%_60%)] flex items-center justify-center">
+               <Filter className="h-5 w-5 text-[hsl(0_0%_100%)]" />
                </div>
                <div>
                     <p className="text-2xl font-bold">{availableGenres.length}</p>
-                    <p className="text-sm text-muted-foreground">Genres</p>
+                    <p className="text-sm text-[hsl(215_13.8%_55.1%)]">Genres</p>
                </div>
                </div>
           </CardContent>

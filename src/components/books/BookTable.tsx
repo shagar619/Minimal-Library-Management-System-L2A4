@@ -105,7 +105,7 @@ return (
 }
 
 return (
-<div className="rounded-lg border bg-card shadow-md overflow-hidden">
+<div className="border bg-[hsl(0_0%_100%)] overflow-hidden">
      <Table>
      <TableHeader>
           <TableRow className="bg-muted/50">
