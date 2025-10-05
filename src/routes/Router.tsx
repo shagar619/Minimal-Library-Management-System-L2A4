@@ -28,7 +28,7 @@ const router = createBrowserRouter([
           errorElement: <NotFound></NotFound>,
      },
      {
-          path: "/edit-book/:_id",
+          path: "/edit-book/:id",
           element: <EditBookPage></EditBookPage>,
           errorElement: <NotFound></NotFound>,
      },

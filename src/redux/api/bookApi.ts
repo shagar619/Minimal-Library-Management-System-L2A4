@@ -24,7 +24,7 @@ export interface CreateBookRequest {
 }
 
 export interface UpdateBookRequest extends Partial<CreateBookRequest> { 
-     _id: string;
+     id: string;
 }
 
 // API Response Types from your backend
@@ -86,14 +86,14 @@ export const booksApi = createApi({
           }),
 
           // PUT update book
-          updateBook: builder.mutation<Book, { _id: string; data: UpdateBookRequest }>({
-               query: ({ _id, data }) => ({
-                    url: `/books/${_id}`,
+          updateBook: builder.mutation<Book, { id: string; data: UpdateBookRequest }>({
+               query: ({ id, data }) => ({
+                    url: `/books/${id}`,
                     method: 'PUT',
                     body: data,
                }),
-               invalidatesTags: (result, error, { _id }) => [
-                    { type: 'Book', _id },
+               invalidatesTags: (result, error, { id }) => [
+                    { type: 'Book', id },
                     { type: 'Book', _id: 'LIST' },
                ],
                transformResponse: (response: ApiResponse<Book>): Book => {
@@ -107,9 +107,9 @@ export const booksApi = createApi({
                     url: `/books/${id}`,
                     method: 'DELETE',
                }),
-               invalidatesTags: (result, error, _id) => [
-                    { type: 'Book', _id },
-                    { type: 'Book', _id: 'LIST' },
+               invalidatesTags: (result, error, id) => [
+                    { type: 'Book', id },
+                    { type: 'Book', id: 'LIST' },
                ],
                transformResponse: (response: ApiResponse<Book>) => ({
                     success: response.success,

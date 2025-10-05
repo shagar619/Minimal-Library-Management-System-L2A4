@@ -9,18 +9,18 @@ import { string } from 'zod';
 
 const EditBookPage = () => {
 
-const { _id } = useParams<{ _id: string }>();
+const { id } = useParams<{ id: string }>();
 const navigate = useNavigate();
 
 // const { toast } = useToast();
 
-const { data: book, isLoading: bookLoading, error } = useGetBookQuery(_id!);
+const { data: book, isLoading: bookLoading, error } = useGetBookQuery(id!);
 
 const [updateBook, { isLoading: updateLoading }] = useUpdateBookMutation();
 
 const handleUpdateBook = async (data: CreateBookRequest) => {
 try {
-     await updateBook({ _id: string, ...data }).unwrap();
+     await updateBook({ id: string, ...data }).unwrap();
 
      // toast({
      //      title: "Book updated successfully",
@@ -29,7 +29,7 @@ try {
 
      alert(`${data.title} has been updated.`);
 
-     navigate(`/books/${_id}`);
+     navigate(`/books/${id}`);
      } catch (error) {
 
      // toast({
@@ -37,6 +37,7 @@ try {
      //      description: "Please check your information and try again.",
      //      variant: "destructive",
      // });
+     console.log(error);
 
      alert(`${error} Error updating book`);
 }
@@ -88,7 +89,7 @@ return (
      <div className="flex items-center justify-between">
           <Button
                variant="ghost"
-               onClick={() => navigate(`/books/${_id}`)}
+               onClick={() => navigate(`/books/${id}`)}
                className="hover:bg-accent-light"
           >
           <ArrowLeft className="h-4 w-4 mr-2" />
