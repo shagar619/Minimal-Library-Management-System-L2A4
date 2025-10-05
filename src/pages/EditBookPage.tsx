@@ -5,7 +5,6 @@ import { ArrowLeft, AlertCircle } from 'lucide-react';
 import { useGetBookQuery, useUpdateBookMutation, type CreateBookRequest } from '@/redux/api/bookApi';
 import PageLayout from '@/components/layout/PageLayout';
 import BookForm from '@/components/books/BookForm';
-import { string } from 'zod';
 
 const EditBookPage = () => {
 
@@ -20,7 +19,7 @@ const [updateBook, { isLoading: updateLoading }] = useUpdateBookMutation();
 
 const handleUpdateBook = async (data: CreateBookRequest) => {
 try {
-     await updateBook({ id: string, ...data }).unwrap();
+     await updateBook({ id: id!, ...data }).unwrap();
 
      // toast({
      //      title: "Book updated successfully",
