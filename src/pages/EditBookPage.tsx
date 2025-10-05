@@ -19,14 +19,14 @@ const [updateBook, { isLoading: updateLoading }] = useUpdateBookMutation();
 
 const handleUpdateBook = async (data: CreateBookRequest) => {
 try {
-     await updateBook({ id: id!, ...data }).unwrap();
+     await updateBook({ id: id!, ...data}).unwrap();
 
      // toast({
      //      title: "Book updated successfully",
      //      description: `"${data.title}" has been updated.`,
      // });
 
-     alert(`${data.title} ✅ Book updated successfully!`);
+     alert(`${data.title} ✅updated successfully!`);
 
      navigate(`/books/${id}`);
      } catch (error) {
@@ -38,7 +38,7 @@ try {
      // });
      console.log(error);
 
-     alert(`${error} Error updating book`);
+     alert(`${error} ❌ Update failed!`);
 }
 };
 

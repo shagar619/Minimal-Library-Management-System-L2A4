@@ -86,11 +86,11 @@ export const booksApi = createApi({
           }),
 
           // PUT update book
-          updateBook: builder.mutation<Book, { id: string; data: UpdateBookRequest }>({
-               query: ({ id, data }) => ({
+          updateBook: builder.mutation<Book, UpdateBookRequest >({
+               query: ({ id, ...patch }) => ({
                     url: `/books/${id}`,
                     method: 'PUT',
-                    body: data,
+                    body: patch,
                }),
                invalidatesTags: (result, error, { id }) => [
                     { type: 'Book', id },
