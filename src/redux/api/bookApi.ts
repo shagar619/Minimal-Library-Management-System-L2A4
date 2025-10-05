@@ -94,7 +94,7 @@ export const booksApi = createApi({
                }),
                invalidatesTags: (result, error, { id }) => [
                     { type: 'Book', id },
-                    { type: 'Book', _id: 'LIST' },
+                    { type: 'Book', id: 'LIST' },
                ],
                transformResponse: (response: ApiResponse<Book>): Book => {
                     return response.updated!;

@@ -26,7 +26,7 @@ try {
      //      description: `"${data.title}" has been updated.`,
      // });
 
-     alert(`${data.title} has been updated.`);
+     alert(`${data.title} ✅ Book updated successfully!`);
 
      navigate(`/books/${id}`);
      } catch (error) {
