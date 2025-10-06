@@ -100,7 +100,7 @@ return (
                disabled={!book.available || book.copies === 0}
                className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 cursor-pointer"
           >
-               <BookMarked className="h-4 w-4 mr-2" />
+          <BookMarked className="h-4 w-4 mr-2" />
                Borrow Book
           </Button>
           </div>
