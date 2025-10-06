@@ -38,7 +38,7 @@ try {
      // });
      console.log(error);
 
-     alert(`${error} ❌ Update failed!`);
+     alert(`❌ Update failed! ${error}`);
 }
 };
 

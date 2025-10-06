@@ -173,8 +173,11 @@ return (
                     {book.available ? 'Available' : 'Unavailable'}
                </Badge>
           </TableCell>
+
           <TableCell>
                <div className="flex items-center justify-center space-x-2">
+               
+               {/* Book Detail page Button */}
                <Button
                     variant="ghost"
                     size="icon"
@@ -183,6 +186,8 @@ return (
                >
                     <Eye className="h-4 w-4" />
                </Button>
+
+               {/* Edit Book page Button */}
                <Button
                     variant="ghost"
                     size="icon"
@@ -191,6 +196,8 @@ return (
                >
                     <Edit className="h-4 w-4" />
                </Button>
+
+               {/* Borrow Book page Button */}
                <Button
                     variant="ghost"
                     size="icon"
@@ -202,6 +209,8 @@ return (
                </Button>
                <AlertDialog>
                     <AlertDialogTrigger asChild>
+
+                    {/* Delete Book page Button */}
                     <Button
                          variant="ghost"
                          size="icon"
