@@ -19,7 +19,7 @@ export interface Borrow {
      isbn: string;
      quantity: number;
      dueDate: string;
-     borrowedAt: string;
+     borrowedAt?: string;
 }
 
 export interface BorrowSummary {
@@ -42,7 +42,7 @@ interface ApiResponse<T> {
 // ==========================
 // API Base URL
 // ==========================
-const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
+const API_BASE_URL = 'http://localhost:5000';
 
 
 
