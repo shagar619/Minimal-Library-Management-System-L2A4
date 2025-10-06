@@ -1,5 +1,6 @@
 import App from "@/App";
 import AllBooksPage from "@/pages/AllBooks";
+import BookDetailPage from "@/pages/BookDetailPage";
 import CreateBookPage from "@/pages/CreateBookPage";
 import EditBookPage from "@/pages/EditBookPage";
 
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
      {
           path: "/edit-book/:id",
           element: <EditBookPage></EditBookPage>,
+          errorElement: <NotFound></NotFound>,
+     },
+     {
+          path: "/books/:id",
+          element: <BookDetailPage></BookDetailPage>,
           errorElement: <NotFound></NotFound>,
      },
 ]);

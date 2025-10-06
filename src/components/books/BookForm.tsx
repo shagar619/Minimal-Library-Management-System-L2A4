@@ -226,6 +226,7 @@ return (
                     </div>
                     <FormControl>
                     <Switch
+                    className='cursor-pointer'
                          checked={field.value}
                          onCheckedChange={field.onChange}
                     />
@@ -260,7 +261,7 @@ return (
           <Button
                     type="submit"
                     disabled={isLoading}
-                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 transition-all duration-200 px-8">
+                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 transition-all duration-200 px-8 cursor-pointer">
                     {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                     {submitText}
           </Button>

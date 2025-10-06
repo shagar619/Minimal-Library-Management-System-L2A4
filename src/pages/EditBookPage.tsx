@@ -89,7 +89,7 @@ return (
           <Button
                variant="ghost"
                onClick={() => navigate(`/books/${id}`)}
-               className="hover:bg-accent-light"
+               className="hover:bg-[hsl(217_91%_95%)] cursor-pointer"
           >
           <ArrowLeft className="h-4 w-4 mr-2" />
                Back to Book Details

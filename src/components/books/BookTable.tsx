@@ -181,7 +181,7 @@ return (
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 bg-[#34656D] hover:bg-[#334443] text-white hover:text-white"
+                    className="h-8 w-8 bg-[#34656D] hover:bg-[#334443] text-white hover:text-white cursor-pointer"
                     onClick={() => navigate(`/books/${book._id}`)}
                >
                     <Eye className="h-4 w-4" />
@@ -201,7 +201,7 @@ return (
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 bg-[hsl(173_58%_39%)] text-white hover:bg-slate-700 hover:text-white"
+                    className="h-8 w-8 bg-[hsl(173_58%_39%)] text-white hover:bg-slate-700 hover:text-white cursor-pointer"
                     onClick={() => navigate(`/borrow/${book._id}`)}
                     disabled={!book.available || book.copies === 0}
                >
@@ -214,7 +214,7 @@ return (
                     <Button
                          variant="ghost"
                          size="icon"
-                         className="h-8 w-8 bg-cursor-pointer hover:opacity-90 transition-all bg-red-600 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-400 hover:text-white"
+                         className="h-8 w-8 cursor-pointer hover:opacity-90 transition-all bg-red-600 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-400 hover:text-white"
                          disabled={deletingId === book._id}
                     >
                          <Trash2 className="h-4 w-4" />

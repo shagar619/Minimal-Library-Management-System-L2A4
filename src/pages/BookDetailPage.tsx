@@ -74,15 +74,15 @@ return (
 
 return (
 <PageLayout>
-     <div className="max-w-4xl mx-auto space-y-6">
+     <div className="mx-6 md:max-w-6xl md:mx-auto mt-24 space-y-6">
      {/* Header */}
      <div className="flex items-center justify-between">
           <Button
                variant="ghost"
                onClick={() => navigate('/books')}
-               className="hover:bg-accent-light"
+               className="hover:bg-[hsl(217_91%_95%)] cursor-pointer text-sm"
           >
-          <ArrowLeft className="h-4 w-4 mr-2" />
+          <ArrowLeft className="h-4 w-4 mr-1" />
                Back to Books
           </Button>
 
@@ -90,7 +90,7 @@ return (
           <Button
                variant="outline"
                onClick={() => navigate(`/edit-book/${book._id}`)}
-               className="hover:bg-primary-light"
+               className="hover:bg-[hsl(173_48%_89%)] hover:text-white cursor-pointer"
           >
           <Edit className="h-4 w-4 mr-2" />
                Edit Book
@@ -98,7 +98,7 @@ return (
           <Button
                onClick={() => navigate(`/borrow/${book._id}`)}
                disabled={!book.available || book.copies === 0}
-               className="bg-gradient-primary hover:opacity-90"
+               className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 cursor-pointer"
           >
                <BookMarked className="h-4 w-4 mr-2" />
                Borrow Book
@@ -111,11 +111,11 @@ return (
           {/* Book Details */}
           <div className="lg:col-span-2 space-y-6">
           <Card className="shadow-lg">
-          <CardHeader className="bg-gradient-subtle">
+          <CardHeader className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
                <div className="flex items-start justify-between">
                <div className="space-y-2">
                     <CardTitle className="text-2xl">{book.title}</CardTitle>
-                    <div className="flex items-center space-x-2 text-muted-foreground">
+                    <div className="flex items-center space-x-2 text-[hsl(215_13.8%_55.1%)]">
                     <User className="h-4 w-4" />
                     <span className="text-lg">by {book.author}</span>
                </div>
@@ -130,11 +130,11 @@ return (
           </CardHeader>
           <CardContent className="p-6 space-y-6">
                 {/* ISBN */}
-               <div className="flex items-center justify-between p-4 rounded-lg bg-muted/30">
+               <div className="flex items-center justify-between p-4 rounded-lg bg-[hsl(210_20%_96%)]/30">
                <div className="flex items-center space-x-3">
-                    <Hash className="h-5 w-5 text-muted-foreground" />
+                    <Hash className="h-5 w-5 text-[hsl(215_13.8%_55.1%)]" />
                <div>
-                    <p className="text-sm font-medium text-muted-foreground">ISBN</p>
+                    <p className="text-sm font-medium text-[hsl(215_13.8%_55.1%)]">ISBN</p>
                     <p className="font-mono text-lg">{book.isbn}</p>
                     </div>
                </div>
@@ -142,7 +142,7 @@ return (
                     variant="ghost"
                     size="icon"
                     onClick={() => copyISBN(book.isbn)}
-                    className="hover:bg-accent-light"
+                    className="hover:bg-[hsl(217_91%_95%)] cursor-pointer"
                >
                     <Copy className="h-4 w-4" />
                </Button>
@@ -154,10 +154,10 @@ return (
                <Separator />
                     <div className="space-y-3">
                     <h3 className="text-lg font-semibold flex items-center">
-                    <BookOpen className="h-5 w-5 mr-2 text-primary" />
+                    <BookOpen className="h-6 w-6 mr-2 text-[hsl(173_58%_39%)]" />
                          Description
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-[hsl(215_13.8%_55.1%)] leading-relaxed">
                          {book.description}
                     </p>
                </div>
@@ -168,18 +168,18 @@ return (
                <Separator />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                <div className="flex items-center space-x-3">
-                    <Calendar className="h-5 w-5 text-muted-foreground" />
+                    <Calendar className="h-5 w-5 text-[hsl(215_13.8%_55.1%)]" />
                <div>
-                    <p className="text-sm font-medium text-muted-foreground">Added on</p>
+                    <p className="text-sm font-medium text-[hsl(215_13.8%_55.1%)]">Added on</p>
                     <p className="text-sm">
                          {new Date(book.createdAt).toLocaleDateString()}
                     </p>
           </div>
           </div>
                <div className="flex items-center space-x-3">
-                    <Calendar className="h-5 w-5 text-muted-foreground" />
+                    <Calendar className="h-5 w-5 text-[hsl(215_13.8%_55.1%)]" />
                     <div>
-                    <p className="text-sm font-medium text-muted-foreground">Last updated</p>
+                    <p className="text-sm font-medium text-[hsl(215_13.8%_55.1%)]">Last updated</p>
                     <p className="text-sm">
                          {new Date(book.updatedAt).toLocaleDateString()}
                     </p>
@@ -200,7 +200,7 @@ return (
           <CardContent className="space-y-4">
           <div className="text-center">
           <div className="text-3xl font-bold mb-2">{book.copies}</div>
-               <p className="text-sm text-muted-foreground">Total Copies</p>
+               <p className="text-sm text-[hsl(215_13.8%_55.1%)]">Total Copies</p>
           </div>
 
           <div className="flex items-center justify-center">
@@ -208,7 +208,7 @@ return (
                     variant={book.available ? "default" : "destructive"}
                     className={cn(
                     "text-sm px-4 py-2",
-                    book.available ? "bg-success text-success-foreground" : ""
+                    book.available ? "bg-[hsl(142_76%_50%)] text-[hsl(0_0%_100%)]" : ""
                     )}
                >
                     {book.available ? 'Available for Borrowing' : 'Currently Unavailable'}
@@ -218,7 +218,7 @@ return (
                {book.available && book.copies > 0 && (
                <Button
                     onClick={() => navigate(`/borrow/${book._id}`)}
-                    className="w-full bg-gradient-primary hover:opacity-90"
+                    className="w-full bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 cursor-pointer"
                >
                <BookMarked className="h-4 w-4 mr-2" />
                     Borrow This Book
@@ -236,7 +236,7 @@ return (
                <Button
                     variant="outline"
                     onClick={() => navigate(`/edit-book/${book._id}`)}
-                    className="w-full justify-start hover:bg-primary-light"
+                    className="w-full justify-start hover:bg-[hsl(173_48%_89%)] cursor-pointer"
                >
                <Edit className="h-4 w-4 mr-2" />
                     Edit Book Details
@@ -244,7 +244,7 @@ return (
                <Button
                     variant="outline"
                     onClick={() => copyISBN(book.isbn)}
-                    className="w-full justify-start hover:bg-accent-light"
+                    className="w-full justify-start hover:bg-[hsl(217_91%_95%)] cursor-pointer"
                >
                <Copy className="h-4 w-4 mr-2" />
                     Copy ISBN
