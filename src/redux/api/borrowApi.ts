@@ -8,8 +8,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export interface BorrowRequest {
      bookId: string;
+     bookTitle: string;
+     isbn: string;
      quantity: number;
      dueDate: string;  // ISO string (e.g., 2025-10-10)
+     borrowedAt?: string;
 }
 
 export interface Borrow {
@@ -54,7 +57,9 @@ const API_BASE_URL = 'http://localhost:5000';
 
 export const borrowApi = createApi({
      reducerPath: 'borrowsApi',
-     baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
+     baseQuery: fetchBaseQuery({ 
+          baseUrl: API_BASE_URL 
+     }),
      tagTypes: ['Borrow'],
      endpoints: (builder) => ({
 
@@ -72,6 +77,7 @@ export const borrowApi = createApi({
      },
      }),
 
+
      // GET /borrows → all borrow records
      getBorrows: builder.query<Borrow[], void>({
           query: () => '/borrows',
@@ -87,6 +93,7 @@ export const borrowApi = createApi({
      },
      }),
 
+
      // GET /borrows/summary → total borrowed by title
      getBorrowSummary: builder.query<BorrowSummary[], void>({
           query: () => '/borrows/summary',
@@ -95,6 +102,7 @@ export const borrowApi = createApi({
           return response.summary || [];
      },
      }),
+
 
      // PUT /borrows/:id → update borrow (e.g., mark as returned)
      updateBorrow: builder.mutation<Borrow, { id: string; data: Partial<BorrowRequest> }>({
@@ -111,6 +119,7 @@ export const borrowApi = createApi({
           return response.updated!;
      },
      }),
+
 
      // DELETE /borrows/:id
      deleteBorrow: builder.mutation<{ success: boolean; id: string }, string>({

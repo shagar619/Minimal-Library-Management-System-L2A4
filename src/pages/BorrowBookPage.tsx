@@ -20,6 +20,7 @@ import {
 
 import { ArrowLeft, BookMarked, AlertCircle, Calendar, Hash } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
 import { useGetBookQuery } from '@/redux/api/bookApi';
 import PageLayout from '@/components/layout/PageLayout';
 import { useBorrowBookMutation } from '@/redux/api/borrowApi';
@@ -44,6 +45,7 @@ const navigate = useNavigate();
 // const { toast } = useToast();
 
 const { data: book, isLoading: bookLoading, error } = useGetBookQuery(bookId!);
+
 const [borrowBook, { isLoading: borrowLoading }] = useBorrowBookMutation();
 
 // Set minimum date to today
@@ -82,16 +84,18 @@ const handleBorrow = async (data: FormData) => {
 
      await borrowBook({
           bookId: book._id,
+          isbn: book.isbn,
+          bookTitle: book.title,
           quantity: data.quantity,
           dueDate: data.dueDate,
      }).unwrap();
 
      // toast({
      //      title: "Book borrowed successfully",
-     //      description: `You have borrowed ${data.quantity} copy(ies) of "${book.title}".`,
+     //      description: `You have borrowed ${data.quantity} copies of "${book.title}".`,
      // });
 
-     alert(`You have borrowed ${data.quantity} copy(ies) of "${book.title}".`);
+     alert(`You have borrowed ${data.quantity} copies of "${book.title}".`);
 
      navigate('/borrow-summary');
      } catch (error) {
@@ -133,7 +137,8 @@ return (
                <h3 className="text-lg font-semibold">Book not found</h3>
                <p className="text-muted-foreground">The book you're trying to borrow doesn't exist.</p>
           </div>
-          <Button onClick={() => navigate('/books')}>
+          <Button 
+          onClick={() => navigate('/books')}>
                Back to Books
           </Button>
           </div>
@@ -176,7 +181,7 @@ return (
           <Button
                variant="ghost"
                onClick={() => navigate(`/books/${bookId}`)}
-               className="hover:bg-accent-light"
+               className="hover:bg-[hsl(217_91%_95%)] cursor-pointer text-sm"
           >
           <ArrowLeft className="h-4 w-4 mr-2" />
                Back to Book Details
@@ -185,9 +190,9 @@ return (
 
      {/* Book Summary */}
      <Card className="shadow-md">
-          <CardHeader className="bg-gradient-subtle">
+          <CardHeader className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardTitle className="flex items-center space-x-2">
-          <BookMarked className="h-5 w-5 text-primary" />
+          <BookMarked className="h-6 w-6 text-[hsl(173_58%_39%)]" />
           <span>Book Details</span>
           </CardTitle>
           </CardHeader>
@@ -195,18 +200,18 @@ return (
           <div className="space-y-4">
           <div>
                <h3 className="text-xl font-bold">{book.title}</h3>
-               <p className="text-muted-foreground">by {book.author}</p>
+               <p className="text-[hsl(215_13.8%_55.1%)]">by {book.author}</p>
           </div>
 
           <div className="flex items-center space-x-4">
                <Badge variant="secondary">{book.genre}</Badge>
           <div className="flex items-center space-x-2">
-               <Hash className="h-4 w-4 text-muted-foreground" />
+               <Hash className="h-4 w-4 text-[hsl(215_13.8%_55.1%)]" />
                <span className="font-mono text-sm">{book.isbn}</span>
           </div>
           </div>
 
-          <div className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
+          <div className="flex items-center justify-between p-3 bg-[hsl(210_20%_96%)]/30 rounded-lg">
                <span className="text-sm font-medium">Available Copies</span>
                <Badge 
                     variant={book.copies > 5 ? "default" : "secondary"}
@@ -221,7 +226,7 @@ return (
 
      {/* Borrow Form */}
      <Card className="shadow-lg">
-          <CardHeader className="bg-gradient-subtle">
+          <CardHeader className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardTitle>Borrowing Information</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
@@ -261,7 +266,7 @@ return (
                <FormItem>
                <FormLabel className="flex items-center space-x-2">
                <Calendar className="h-4 w-4" />
-                        <span>Due Date *</span>
+                    <span>Due Date *</span>
                </FormLabel>
                <FormControl>
                     <Input 
@@ -282,6 +287,7 @@ return (
                {/* Submit Button */}
                <div className="flex justify-end space-x-4 pt-4">
                <Button
+               className='cursor-pointer'
                     type="button"
                     variant="outline"
                     onClick={() => navigate(`/books/${bookId}`)}
@@ -291,7 +297,7 @@ return (
                <Button
                     type="submit"
                     disabled={borrowLoading}
-                    className="bg-gradient-primary hover:opacity-90 transition-all duration-200 px-8"
+                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 transition-all duration-200 px-8 cursor-pointer"
                >
                     {borrowLoading && <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground border-r-transparent" />}
                     Borrow Book
