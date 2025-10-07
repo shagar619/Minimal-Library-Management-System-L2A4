@@ -22,7 +22,7 @@ return (
      <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
      <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-     <Link to="/books" className="flex items-center space-x-2 ml-12">
+     <Link to="/" className="flex items-center space-x-2 ml-12">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)]">
                <BookOpen className="h-6 w-6 text-primary-foreground" />
           </div>
@@ -39,7 +39,7 @@ return (
                variant={isActivePath(item.href) ? "default" : "ghost"}
                asChild
                className={cn(
-               "transition-all duration-200 text-base hover:bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:text-white",
+               "transition-all duration-200 text-base  hover:text-white",
                isActivePath(item.href) && "bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] shadow-md"
                )}
           >

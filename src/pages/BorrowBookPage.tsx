@@ -297,7 +297,7 @@ return (
                <Button
                     type="submit"
                     disabled={borrowLoading}
-                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 transition-all duration-200 px-8 cursor-pointer"
+                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-60 transition-all duration-200 px-8 cursor-pointer"
                >
                     {borrowLoading && <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground border-r-transparent" />}
                     Borrow Book

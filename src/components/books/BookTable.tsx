@@ -147,7 +147,7 @@ return (
                <Button
                     variant="ghost"
                     size="icon"
-                    className="h-6 w-6"
+                    className="h-6 w-6 cursor-pointer"
                     onClick={() => copyISBN(book.isbn)}
                >
                     <Copy className="h-3 w-3" />
@@ -228,10 +228,10 @@ return (
                     </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel className='cursor-pointer'>Cancel</AlertDialogCancel>
                     <AlertDialogAction
                          onClick={() => handleDelete(book._id, book.title)}
-                         className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                         className="bg-destructive text-destructive-foreground hover:bg-destructive/50 cursor-pointer"
                     >
                          Delete
                     </AlertDialogAction>

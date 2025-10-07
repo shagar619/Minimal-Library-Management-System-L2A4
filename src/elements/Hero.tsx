@@ -67,7 +67,7 @@ return (
           <Button 
           size="lg"
           onClick={() => navigate('/books')}
-          className="bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:opacity-90 transition-all duration-200 text-lg px-8 py-6"
+          className="bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)] hover:opacity-60 transition-all duration-200 text-lg px-8 py-6 rounded-xs cursor-pointer"
           >
           <BookOpen className="mr-2 h-5 w-5" />
                Browse Books
@@ -76,7 +76,7 @@ return (
           size="lg"
           variant="outline"
           onClick={() => navigate('/create-book')}
-          className="text-lg px-8 py-6 hover:bg-[hsl(173,58%,32%)] hover:text-white border-2"
+          className="text-lg px-8 py-6 hover:bg-[hsl(173,58%,32%)] hover:text-white border-2 cursor-pointer rounded-xs"
           >
           <Plus className="mr-2 h-5 w-5" />
                Add New Book
@@ -133,7 +133,7 @@ return (
                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                <Button 
                     onClick={() => navigate('/books')}
-                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90 transition-all duration-200 py-6"
+                    className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-60 transition-all duration-200 py-6 cursor-pointer rounded-xs"
                >
                     <BookOpen className="mr-2 h-5 w-5" />
                     View All Books
@@ -141,7 +141,7 @@ return (
                <Button 
                     onClick={() => navigate('/create-book')}
                     variant="outline"
-                    className="hover:bg-[hsl(173_48%_89%)] border-2 py-6"
+                    className="hover:bg-[hsl(173_48%_89%)] border-2 py-6 rounded-xs cursor-pointer"
                >
                     <Plus className="mr-2 h-5 w-5" />
                     Add First Book
@@ -149,7 +149,7 @@ return (
                <Button 
                     onClick={() => navigate('/borrow-summary')}
                     variant="outline"
-                    className="hover:bg-[hsl(217_91%_95%)] border-2 py-6 cursor-pointer"
+                    className="hover:bg-[hsl(217_91%_95%)] border-2 py-6 cursor-pointer rounded-xs"
                >
                     <BarChart3 className="mr-2 h-5 w-5" />
                     View Analytics

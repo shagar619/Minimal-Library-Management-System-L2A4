@@ -8,7 +8,7 @@ return (
      <div className="container py-8">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
         {/* Logo */}
-     <Link to="/books" className="flex items-center space-x-2 ml-12">
+     <Link to="/" className="flex items-center space-x-2 ml-12">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(173,58%,39%)] to-[hsl(173,58%,32%)]">
                <BookOpen className="h-6 w-6 text-primary-foreground" />
           </div>

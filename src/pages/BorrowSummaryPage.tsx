@@ -134,7 +134,7 @@ return (
      </div>
 
      {/* Borrow Summary Table */}
-     <Card className="shadow-lg">
+     <Card className="shadow-sm rounded-xs">
           <CardHeader className="bg-[linear-gradient(180deg,hsl(0_0%_100%),hsl(210_20%_98%))]">
           <CardTitle className="flex items-center space-x-2">
                <BarChart3 className="h-6 w-6 text-[hsl(173_58%_39%)]" />
@@ -216,13 +216,13 @@ return (
           <Button
                variant="outline"
                onClick={() => navigate('/books')}
-               className="hover:bg-[hsl(217_91%_95%)]"
+               className="hover:bg-[hsl(217_91%_95%)] cursor-pointer"
           >
                Browse All Books
           </Button>
           <Button
                onClick={() => navigate('/create-book')}
-               className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-90"
+               className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] hover:opacity-60 cursor-pointer"
           >
                Add New Book
           </Button>

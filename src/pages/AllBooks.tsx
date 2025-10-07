@@ -155,7 +155,7 @@ return (
           {/* Add Book Button */}
           <Button 
                onClick={() => navigate('/create-book')}
-               className="bg-[hsl(173_58%_39%)] hover:opacity-90 transition-all duration-200"
+               className="bg-[hsl(173_58%_39%)] hover:opacity-60 cursor-pointer transition-all duration-200"
           >
           <Plus className="h-4 w-4 mr-2" />
                Add Book
