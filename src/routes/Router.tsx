@@ -2,6 +2,7 @@ import App from "@/App";
 import AllBooksPage from "@/pages/AllBooks";
 import BookDetailPage from "@/pages/BookDetailPage";
 import BorrowBookPage from "@/pages/BorrowBookPage";
+import BorrowSummaryPage from "@/pages/BorrowSummaryPage";
 import CreateBookPage from "@/pages/CreateBookPage";
 import EditBookPage from "@/pages/EditBookPage";
 
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
      {
           path: "/borrow/:bookId",
           element: <BorrowBookPage></BorrowBookPage>,
+          errorElement: <NotFound></NotFound>,
+     },
+     {
+          path: "/borrow-summary",
+          element: <BorrowSummaryPage></BorrowSummaryPage>,
           errorElement: <NotFound></NotFound>,
      },
 ]);
