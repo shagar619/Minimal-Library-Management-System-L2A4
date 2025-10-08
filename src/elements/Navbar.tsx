@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Plus, BarChart3, Menu, X, BookOpen } from 'lucide-react';
+import { Plus, BarChart3, Menu, X, BookOpen, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ModeToggle } from '@/components/toggleButton/mode-toggle';
@@ -14,6 +14,7 @@ const navItems = [
      { href: '/books', label: 'All Books', icon: BookOpen },
      { href: '/create-book', label: 'Add Book', icon: Plus },
      { href: '/borrow-summary', label: 'Borrow Summary', icon: BarChart3 },
+     { href: '/contact', label: 'Contact Us', icon: Mail },
      ];
 
 const isActivePath = (path: string) => location.pathname === path;
