@@ -3,6 +3,7 @@ import AllBooksPage from "@/pages/AllBooks";
 import BookDetailPage from "@/pages/BookDetailPage";
 import BorrowBookPage from "@/pages/BorrowBookPage";
 import BorrowSummaryPage from "@/pages/BorrowSummaryPage";
+import ContactPage from "@/pages/ContactPage";
 import CreateBookPage from "@/pages/CreateBookPage";
 import EditBookPage from "@/pages/EditBookPage";
 
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
      {
           path: "/borrow-summary",
           element: <BorrowSummaryPage></BorrowSummaryPage>,
+          errorElement: <NotFound></NotFound>,
+     },
+     {
+          path: "/contact",
+          element: <ContactPage></ContactPage>,
           errorElement: <NotFound></NotFound>,
      },
 ]);
