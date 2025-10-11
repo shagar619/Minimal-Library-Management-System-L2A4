@@ -244,7 +244,7 @@ Contributions are welcome! Here's how you can help:
 5. Open a Pull Request
 
 
-#### 🧑‍💻 Author  
+#### 🧑‍💻 Author
 
 **Developed by:** *[Shagar Ahmed]*  
 📧 **Email:** ashagar619@gmail.com  
