@@ -39,7 +39,7 @@ interface ApiResponse<T> {
 }
 
 // API base URL
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://minimal-library-management-backend-navy.vercel.app';
 
 export const booksApi = createApi({
      reducerPath: 'booksApi',
@@ -51,7 +51,7 @@ export const booksApi = createApi({
           
           // GET all books
           getBooks: builder.query<Book[], void>({
-               query: () => '/books', // This will call http://localhost:5000/books
+               query: () => '/books', // This will call https://minimal-library-management-backend-navy.vercel.app/books
                providesTags: (result) =>
                     result
                          ? [
