@@ -136,7 +136,7 @@ return (
                <div className="flex flex-wrap gap-2">
                <Badge
                     variant={selectedGenre === '' ? 'default' : 'secondary'}
-                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                    className="cursor-pointer hover:opacity-80 transition-opacity rounded-xs"
                     onClick={() => setSelectedGenre('')}
                >
                     All Genres
@@ -145,7 +145,7 @@ return (
                <Badge
                     key={genre}
                     variant={selectedGenre === genre ? 'default' : 'secondary'}
-                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                    className="cursor-pointer hover:opacity-80 transition-opacity rounded-xs hover:bg-[hsl(173_48%_89%)]"
                     onClick={() => setSelectedGenre(selectedGenre === genre ? '' : genre)}
                >
                     {genre}
