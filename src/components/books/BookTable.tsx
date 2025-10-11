@@ -26,6 +26,7 @@ import {
 import { Eye, Edit, Trash2, BookMarked, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useDeleteBookMutation, type Book } from '@/redux/api/bookApi';
+import Swal from 'sweetalert2'
 
 interface BookTableProps {
      books: Book[];
@@ -43,7 +44,13 @@ try {
      setDeletingId(bookId);
      await deleteBook(bookId).unwrap();
 
-     alert(`${bookTitle} Book deleted successfully!`);
+     // alert(`${bookTitle} Book deleted successfully!`);
+
+     Swal.fire({
+          title: `✅ ${bookTitle} Book deleted successfully!`,
+          icon: "success",
+          draggable: true
+     });
 
      // toast({
      //      title: "Book deleted successfully",
@@ -52,7 +59,13 @@ try {
 
      } catch (error) {
 
-     alert(`Error deleting book.Please try again later. ${error}`);
+     // alert(`Error deleting book.Please try again later. ${error}`);
+
+     Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Error deleting book.Please try again later. ${error}`,
+     });
 
      // toast({
      //      title: "Error deleting book",

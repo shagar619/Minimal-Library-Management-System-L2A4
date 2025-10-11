@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCreateBookMutation, type CreateBookRequest } from '@/redux/api/bookApi';
 import PageLayout from '@/components/layout/PageLayout';
 import BookForm from '@/components/books/BookForm';
+import Swal from 'sweetalert2';
 // import { useToast } from '@/hooks/use-toast';
 
 const CreateBookPage = () => {
@@ -20,7 +21,13 @@ const CreateBookPage = () => {
           // description: `"${data.title}" has been added to the library.`,
           // });
 
-          alert(`${data.title}" has been added to the library.`)
+          // alert(`${data.title}" has been added to the library.`);
+
+          Swal.fire({
+               title: `✅ ${data.title}" has been added to the library.`,
+               icon: "success",
+               draggable: true
+          });
 
           navigate('/books');
 
@@ -33,7 +40,13 @@ const CreateBookPage = () => {
           // error
           // });
 
-          alert(`${error} - Please check your information and try again.`);
+          // alert(`${error} - Please check your information and try again.`);
+
+          Swal.fire({
+               icon: "error",
+               title: "Oops...",
+               text: `Error deleting book.Please try again later. ${error}`,
+          });
      }
      };
 

@@ -5,6 +5,7 @@ import { ArrowLeft, AlertCircle } from 'lucide-react';
 import { useGetBookQuery, useUpdateBookMutation, type CreateBookRequest } from '@/redux/api/bookApi';
 import PageLayout from '@/components/layout/PageLayout';
 import BookForm from '@/components/books/BookForm';
+import Swal from 'sweetalert2';
 
 const EditBookPage = () => {
 
@@ -26,9 +27,16 @@ try {
      //      description: `"${data.title}" has been updated.`,
      // });
 
-     alert(`${data.title} ✅updated successfully!`);
+     // alert(`${data.title} ✅updated successfully!`);
+
+     Swal.fire({
+          title: `${data.title} ✅updated successfully!`,
+          icon: "success",
+          draggable: true
+     });
 
      navigate(`/books/${id}`);
+
      } catch (error) {
 
      // toast({
@@ -36,9 +44,15 @@ try {
      //      description: "Please check your information and try again.",
      //      variant: "destructive",
      // });
-     console.log(error);
+     // console.log(error);
 
-     alert(`❌ Update failed! ${error}`);
+     // alert(`❌ Update failed! ${error}`);
+
+     Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `❌ Update failed! ${error}`,
+     });
 }
 };
 

@@ -19,11 +19,11 @@ import {
 } from '@/components/ui/form';
 
 import { ArrowLeft, BookMarked, AlertCircle, Calendar, Hash } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 import { useGetBookQuery } from '@/redux/api/bookApi';
 import PageLayout from '@/components/layout/PageLayout';
 import { useBorrowBookMutation } from '@/redux/api/borrowApi';
+import Swal from 'sweetalert2';
 
 const formSchema = z.object({
      quantity: z.number().min(1, 'Quantity must be at least 1'),
@@ -95,7 +95,13 @@ const handleBorrow = async (data: FormData) => {
      //      description: `You have borrowed ${data.quantity} copies of "${book.title}".`,
      // });
 
-     alert(`You have borrowed ${data.quantity} copies of "${book.title}".`);
+     // alert(`You have borrowed ${data.quantity} copies of "${book.title}".`);
+
+     Swal.fire({
+          title: `You have borrowed ${data.quantity} copies of "${book.title}" successfully ✅.`,
+          icon: "success",
+          draggable: true
+     });
 
      navigate('/borrow-summary');
      } catch (error) {
@@ -106,7 +112,13 @@ const handleBorrow = async (data: FormData) => {
      //      variant: "destructive",
      // });
 
-     alert(`${error} Please try again later.`)
+     // alert(`${error} Please try again later.`);
+
+     Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `❌ Borrow Book failed! ${error}`,
+     });
 
      }
 };
