@@ -10,6 +10,8 @@ interface PageLayoutProps {
      description?: string;
 }
 
+
+
 const PageLayout = ({ children, title, description }: PageLayoutProps) => {
 return (
      <div className="min-h-screen flex flex-col">
@@ -33,7 +35,8 @@ return (
           </div>
           </div>
      )}
-     <div className="mx-6 md:w-10/12 md:mx-auto pb-36 animate-fade-in">
+     <div 
+     className="mx-6 md:w-10/12 md:mx-auto pb-36 animate-fade-in">
           {children}
      </div>
      </main>
