@@ -70,7 +70,7 @@ return (
           </div>
           <Button 
                onClick={() => navigate('/books')}
-               className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))]"
+               className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))] cursor-pointer"
           >
                Browse Books
           </Button>

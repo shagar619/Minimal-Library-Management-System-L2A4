@@ -40,9 +40,11 @@ return (
           <BookOpen className="h-12 w-12 mx-auto text-destructive" />
           <div>
                <h3 className="text-lg font-semibold">Error loading books</h3>
-               <p className="text-muted-foreground">Please try refreshing the page.</p>
+               <p className="text-[hsl(215_13.8%_55.1%)]">Please try refreshing the page.</p>
           </div>
-          <Button onClick={() => window.location.reload()}>
+          <Button
+          className='cursor-pointer'
+          onClick={() => window.location.reload()}>
                Refresh Page
           </Button>
           </div>

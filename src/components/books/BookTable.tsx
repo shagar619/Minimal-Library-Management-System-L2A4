@@ -93,8 +93,8 @@ if (isLoading) {
 return (
      <div className="rounded-lg border">
      <div className="p-8 text-center">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent"></div>
-          <p className="mt-4 text-muted-foreground">Loading books...</p>
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[hsl(173_58%_39%)] border-r-transparent"></div>
+          <p className="mt-4 text-[hsl(215_13.8%_55.1%)]">Loading books...</p>
      </div>
      </div>
 );
@@ -102,14 +102,14 @@ return (
 
 if (!books?.length) {
 return (
-     <div className="rounded-lg border bg-card">
+     <div className="rounded-lg border">
      <div className="p-8 text-center space-y-4">
-          <BookMarked className="h-12 w-12 mx-auto text-muted-foreground" />
+          <BookMarked className="h-12 w-12 mx-auto text-[hsl(215_13.8%_55.1%)]" />
           <div>
           <h3 className="text-lg font-semibold">No books found</h3>
-          <p className="text-muted-foreground">Start by adding your first book to the library.</p>
+          <p className="text-[hsl(215_13.8%_55.1%)]">Start by adding your first book to the library.</p>
           </div>
-          <Button onClick={() => navigate('/create-book')} className="bg-gradient-primary">
+          <Button onClick={() => navigate('/create-book')} className="bg-[linear-gradient(135deg,hsl(173_58%_39%),hsl(173_58%_32%))]">
                Add Your First Book
           </Button>
      </div>

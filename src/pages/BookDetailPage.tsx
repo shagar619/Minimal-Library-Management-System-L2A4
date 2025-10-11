@@ -40,7 +40,7 @@ if (isLoading) {
 return (
      <PageLayout>
      <div className="max-w-4xl mx-auto">
-          <Card className="p-8">
+          <Card className="p-8 mt-36">
           <div className="text-center space-y-4">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent"></div>
                <p className="text-muted-foreground">Loading book details...</p>
@@ -60,9 +60,11 @@ return (
           <AlertCircle className="h-12 w-12 mx-auto text-destructive" />
           <div>
                <h3 className="text-lg font-semibold">Book not found</h3>
-               <p className="text-muted-foreground">The book you're looking for doesn't exist.</p>
+               <p className="text-[hsl(215_13.8%_55.1%)]">The book you're looking for doesn't exist.</p>
           </div>
-          <Button onClick={() => navigate('/books')}>
+          <Button
+          className='cursor-pointer'
+          onClick={() => navigate('/books')}>
                Back to Books
           </Button>
           </div>

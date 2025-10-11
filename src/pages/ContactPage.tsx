@@ -41,7 +41,7 @@ await new Promise((resolve) => setTimeout(resolve, 1000));
      // description: 'We\'ll get back to you as soon as possible.',
      // });
 
-     alert(`We'll get back to you as soon as possible.`)
+     alert(`We'll get back to you as soon as possible. ${data}`);
 
      reset();
 };

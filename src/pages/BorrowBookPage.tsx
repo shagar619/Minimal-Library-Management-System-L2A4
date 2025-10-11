@@ -127,10 +127,10 @@ if (bookLoading) {
 return (
      <PageLayout>
      <div className="max-w-2xl mx-auto">
-          <Card className="p-8">
+          <Card className="p-8 mt-36">
           <div className="text-center space-y-4">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent"></div>
-               <p className="text-muted-foreground">Loading book details...</p>
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-[hsl(173_58%_39%)] border-r-transparent"></div>
+               <p className="text-[hsl(215_13.8%_55.1%)]">Loading book details...</p>
           </div>
           </Card>
      </div>
@@ -142,14 +142,15 @@ if (error || !book) {
 return (
      <PageLayout>
      <div className="max-w-2xl mx-auto">
-          <Card className="p-8 text-center">
+          <Card className="p-8 text-center mt-36">
           <div className="space-y-4">
           <AlertCircle className="h-12 w-12 mx-auto text-destructive" />
           <div>
                <h3 className="text-lg font-semibold">Book not found</h3>
-               <p className="text-muted-foreground">The book you're trying to borrow doesn't exist.</p>
+               <p className="text-[hsl(215_13.8%_55.1%)]">The book you're trying to borrow doesn't exist.</p>
           </div>
-          <Button 
+          <Button
+          className='cursor-pointer'
           onClick={() => navigate('/books')}>
                Back to Books
           </Button>
@@ -164,16 +165,18 @@ if (!book.available || book.copies === 0) {
 return (
      <PageLayout title="Borrow Book">
      <div className="max-w-2xl mx-auto">
-          <Card className="p-8 text-center">
+          <Card className="p-8 text-center mt-36">
           <div className="space-y-4">
-          <BookMarked className="h-12 w-12 mx-auto text-muted-foreground" />
+          <BookMarked className="h-12 w-12 mx-auto text-[hsl(215_13.8%_55.1%)]" />
           <div>
                <h3 className="text-lg font-semibold">Book not available</h3>
-               <p className="text-muted-foreground">
+               <p className="text-[hsl(215_13.8%_55.1%)]">
                     "{book.title}" is currently not available for borrowing.
                </p>
           </div>
-          <Button onClick={() => navigate('/books')}>
+          <Button
+          className='cursor-pointer'
+          onClick={() => navigate('/books')}>
                Browse Other Books
           </Button>
           </div>
